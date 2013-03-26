@@ -18,9 +18,10 @@ func watchWhistle() {
 		for _, c := range commandes {
 			if seq.Matches(c.Notes) {
 				fmt.Println("commande recognized: " + c.Name)
+				go c.Execute()
 				break
 			}
 		}
-		fmt.Println("Sequence " + seq.String())
+		fmt.Println("unknown Sequence " + seq.String())
 	}
 }
