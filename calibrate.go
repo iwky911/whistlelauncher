@@ -4,8 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"persistance"
-	"sndlib"
+	"github.com/iwky911/whistlelauncher/persistance"
+	"github.com/iwky911/whistlelauncher/sndlib"
 )
 
 func printSeq(s *sndlib.Sequence, name string) {

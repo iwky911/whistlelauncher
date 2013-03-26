@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"persistance"
-	"sndlib"
+	"github.com/iwky911/whistlelauncher/persistance"
+	"github.com/iwky911/whistlelauncher/sndlib"
 )
 
 func main() {
