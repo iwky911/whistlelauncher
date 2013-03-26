@@ -1,15 +1,14 @@
 package sndlib
 
 import (
-	"fmt"
 	"time"
 )
 
-var _ = fmt.Println
+var NB_STATE = 2
 
 func DetectNote(output chan *Note) {
 	sp := CreateInstance()
-	state := NewState(2)
+	state := NewState(NB_STATE)
 	var current_note *Note
 	for true {
 		s := sp.GetSndSignature()

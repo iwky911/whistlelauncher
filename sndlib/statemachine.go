@@ -25,16 +25,10 @@ func max(a, b int) int {
 
 func (s *State) Incr() {
 	s.counter = min(s.counter+1, s.limit)
-	// if s.counter > s.limit/2 {
-	// 	s.counter=s.limit
-	// }
 }
 
 func (s *State) Decr() {
 	s.counter = max(s.counter-1, -s.limit)
-	// if s.counter < -s.limit/2 {
-	// 	s.counter=-s.limit
-	// }
 }
 
 func (s *State) IsActive() bool {

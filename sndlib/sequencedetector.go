@@ -1,15 +1,12 @@
 package sndlib
 
 import (
-	"fmt"
 	"time"
 )
 
-const MIN_NOTE_LENGTH = .05
-const MIN_START_NOTE_LENGTH = .05
-const MAX_TIMEOUT = 750
-
-var _ = fmt.Print
+var MIN_NOTE_LENGTH = .05
+var MIN_START_NOTE_LENGTH = .05
+var MAX_TIMEOUT = 750*time.Millisecond
 
 func DetectSequence(input chan *Note, output chan *Sequence) {
 	var sequence = &Sequence{[3]*Note{nil, nil, nil}, 0}
@@ -20,7 +17,7 @@ func DetectSequence(input chan *Note, output chan *Sequence) {
 		case n := <-input:
 			if n.Length() > MIN_START_NOTE_LENGTH || sequence.IsEmpty() && n.Length() > MIN_NOTE_LENGTH {
 				sequence.addNote(n)
-				time.AfterFunc(MAX_TIMEOUT*time.Millisecond, func() {
+				time.AfterFunc(MAX_TIMEOUT, func() {
 					timeout <- n
 				})
 			}

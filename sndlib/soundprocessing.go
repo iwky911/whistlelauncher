@@ -2,33 +2,16 @@ package sndlib
 
 import (
 	"bufio"
-	"fmt"
 	"os/exec"
 	"regexp"
 	"strconv"
 	"strings"
+	"fmt"
+	"os"
 )
 
-const INIT_NB = 25
 
 var whitespaces, _ = regexp.Compile("\\s+")
-var meanvector []float64
-
-func nothing() {
-	fmt.Println("do nothing")
-}
-
-// func add(a, b []float64) {
-// 	for i, _ := range a {
-// 		a[i] += b[i]
-// 	}
-// }
-
-// func average(v []float64, n float64) {
-// 	for i, _ := range v {
-// 		v[i] = v[i] / n
-// 	}
-// }
 
 type SndPeekInstance struct {
 	command *exec.Cmd
@@ -42,10 +25,12 @@ func CreateInstance() *SndPeekInstance {
 	if err != nil {
 		fmt.Println("could not create pipe")
 		fmt.Println(err)
+		os.Exit(1)
 	}
 	err = c.Start()
 	if err != nil {
 		fmt.Println(err)
+		os.Exit(1)
 	}
 	return &SndPeekInstance{c, bufio.NewReader(pipe)}
 }

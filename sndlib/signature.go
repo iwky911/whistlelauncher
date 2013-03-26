@@ -1,16 +1,14 @@
 package sndlib
 
 import (
-	"fmt"
 	"math"
 )
 
-const CLEAR_THRESHOLD = 20
+var CLEAR_THRESHOLD = 20.
 
 type Signature interface {
 	IsClear() bool
 	Value() float64
-	ToString() string
 }
 
 type simpleSign struct {
@@ -23,8 +21,4 @@ func (s *simpleSign) IsClear() bool {
 
 func (s *simpleSign) Value() float64 {
 	return (s.values[0] + s.values[1]) / 2
-}
-
-func (s *simpleSign) ToString() string {
-	return fmt.Sprintf("%f", s.Value())
 }

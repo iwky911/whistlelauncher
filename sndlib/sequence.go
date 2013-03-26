@@ -13,7 +13,6 @@ type Sequence struct {
 }
 
 func (s *Sequence) addNote(n *Note) {
-	//fmt.Println("debug: note added: ")
 	s.notes[s.i] = n
 	s.i++
 }
