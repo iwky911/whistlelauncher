@@ -4,7 +4,7 @@ import(
 	"os"
 )
 
-var DATA_FILE = "data/mapping.cfg"
+var DATA_FILE = "mapping.cfg"
 
 func main(){
 	var config = false
