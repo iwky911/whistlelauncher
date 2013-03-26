@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-const threshold = 4
+const CLEAR_THRESHOLD = 20
 
 type Signature interface {
 	IsClear() bool
@@ -18,12 +18,8 @@ type simpleSign struct {
 }
 
 func (s *simpleSign) IsClear() bool {
-	return math.Abs(s.values[1]-s.values[0]) < 30
+	return math.Abs(s.values[1]-s.values[0]) < CLEAR_THRESHOLD
 }
-
-// func (s *simpleSign) Matches(s2 Signature) bool {
-// 	return math.Abs(s.Value() - s2.Value())< threshold
-// }
 
 func (s *simpleSign) Value() float64 {
 	return (s.values[0] + s.values[1]) / 2

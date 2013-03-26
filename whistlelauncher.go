@@ -6,8 +6,8 @@ import (
 	"github.com/iwky911/whistlelauncher/sndlib"
 )
 
-func main() {
-	commandes := persistance.LoadFromFile("mapping.cfg")
+func watchWhistle() {
+	commandes := persistance.LoadFromFile(DATA_FILE)
 	mychan := make(chan *sndlib.Note, 1)
 	seqchan := make(chan *sndlib.Sequence, 1)
 	go sndlib.DetectNote(mychan)

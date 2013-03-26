@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-const NOTE_MATCHING_THRESHOLD = 5
+const NOTE_MATCHING_THRESHOLD = 3
 
 type Sequence struct {
 	notes [3]*Note

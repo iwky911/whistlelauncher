@@ -7,7 +7,7 @@ import (
 
 const MIN_NOTE_LENGTH = .05
 const MIN_START_NOTE_LENGTH = .05
-const MAX_TIMEOUT = 500
+const MAX_TIMEOUT = 750
 
 var _ = fmt.Print
 

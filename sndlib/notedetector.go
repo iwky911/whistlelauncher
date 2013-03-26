@@ -9,7 +9,7 @@ var _ = fmt.Println
 
 func DetectNote(output chan *Note) {
 	sp := CreateInstance()
-	state := NewState(4)
+	state := NewState(2)
 	var current_note *Note
 	for true {
 		s := sp.GetSndSignature()

@@ -8,7 +8,7 @@ import(
 var _ = fmt.Print
 
 func SaveToFile(name string, data []Mapping){
-	f,err := os.OpenFile("data/"+name, os.O_WRONLY + os.O_CREATE, 0666)
+	f,err := os.OpenFile(name, os.O_WRONLY + os.O_CREATE, 0666)
 	if err!= nil {
 		fmt.Println(err)
 	}
@@ -17,9 +17,10 @@ func SaveToFile(name string, data []Mapping){
 }
 
 func LoadFromFile(name string) []Mapping {
-	f,err := os.Open("data/"+name)
+	f,err := os.Open(name)
 	if err!= nil {
 		fmt.Println(err)
+		return []Mapping{}
 	}
 	defer f.Close()
 	output := []Mapping{}
