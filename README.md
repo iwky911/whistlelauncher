@@ -30,6 +30,10 @@ The program consist of two filters linked by channels:
 * whistlelauncher.go parses your config file and launch the program
 * main.go is the main executable that dispatch you to calibrate or whisle launcher depending on flags.
 
+# Documentation
+
+	http://godoc.org/github.com/iwky911/whistlelauncher
+
 # TODO
 
 * Document the code
