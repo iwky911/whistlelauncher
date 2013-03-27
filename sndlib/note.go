@@ -4,8 +4,9 @@ import (
 	"time"
 )
 
+// A detected note
 type Note struct {
-	value float64
+	value float64 // tone
 	start time.Time
 	end   time.Time
 }

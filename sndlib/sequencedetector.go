@@ -4,10 +4,12 @@ import (
 	"time"
 )
 
-var MIN_NOTE_LENGTH = .05
-var MIN_START_NOTE_LENGTH = .05
-var MAX_TIMEOUT = 750*time.Millisecond
+var MIN_NOTE_LENGTH = .05 // Length of the second note
+var MIN_START_NOTE_LENGTH = .05 // Length of the first note
+var MAX_TIMEOUT = 750*time.Millisecond // Max delay between the end of two notes
 
+
+//Detect sequence of notes out of a note stream
 func DetectSequence(input chan *Note, output chan *Sequence) {
 	var sequence = &Sequence{[3]*Note{nil, nil, nil}, 0}
 	var timeout = make(chan *Note)

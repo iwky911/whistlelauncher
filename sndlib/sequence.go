@@ -7,9 +7,10 @@ import (
 
 const NOTE_MATCHING_THRESHOLD = 3
 
+// list of signature
 type Sequence struct {
 	notes [3]*Note
-	i     int
+	i     int // current filling point (used to fill the sequence and detect fullness)
 }
 
 func (s *Sequence) addNote(n *Note) {
@@ -40,6 +41,7 @@ func (s *Sequence) Notes() []*Note {
 	return s.notes[:]
 }
 
+// detect if the sequence matches the slice notes. Uses NOTE_MATCHING_THRESHOLD.
 func (s *Sequence) Matches(notes []float64) bool {
 	for i, n := range s.notes {
 		if n != nil && (len(notes) <= i || math.Abs(n.Value()-notes[i]) > NOTE_MATCHING_THRESHOLD) {

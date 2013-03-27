@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-var NB_STATE = 2
+var NB_STATE = 2 // nombre of state for the state machine
 
 func DetectNote(output chan *Note) {
 	sp := CreateInstance()

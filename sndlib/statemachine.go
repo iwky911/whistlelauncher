@@ -1,5 +1,6 @@
 package sndlib
 
+// A simple state machine used to add inertia to the note detector and avoid detections errors
 type State struct {
 	limit   int
 	counter int

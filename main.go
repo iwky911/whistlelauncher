@@ -4,6 +4,7 @@ import(
 	"os"
 )
 
+// Filepath for the config file
 var DATA_FILE = "mapping.cfg"
 
 func main(){

@@ -35,6 +35,9 @@ func isPrefix(a, b string) bool {
 	return len(a) >= len(b) && a[:len(b)] == b
 }
 
+/*
+Acquire list of commands and whistle tones
+*/
 func configure() {
 	name := ""
 	command := ""

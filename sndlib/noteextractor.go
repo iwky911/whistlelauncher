@@ -1,3 +1,13 @@
+/*
+Package sndlib extracts notes or sequences of notes from sndpeek output.
+
+	The three main components are:
+		* CreateInstance that create the sndpeek instance and initialize the buffer
+		* GetSndSignature that extract the two rolloffs from sndpeek output
+		* DetectNote that extract notes from the sequence of rolloffs
+		* DetectSequence that detect sequences of notes from sequence of notes
+
+*/
 package sndlib
 
 import (
@@ -34,7 +44,7 @@ func CreateInstance() *SndPeekInstance {
 	}
 	return &SndPeekInstance{c, bufio.NewReader(pipe)}
 }
-
+// Returns a signature (two rolloffs)
 func (sndpeek *SndPeekInstance) GetSndSignature() Signature {
 	line, _ := sndpeek.reader.ReadString('\n')
 	line = whitespaces.ReplaceAllString(line, " ")
